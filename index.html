@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KARNATAKA ONE – Online & Citizen Services</title>
+<meta name="description" content="Aadhaar update, ration card update, Pahani, EC, xerox and student project printing near you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c8102e; --red-dark:#9e0c24; --yellow:#ffc72c; --ink:#1d1d1f; --muted:#5f6368;
+    --bg:#fafaf7; --card:#ffffff; --line:#e7e5df; --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none}
+  .brand .dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--red) 50%,var(--yellow) 50%)}
+  .brand small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);line-height:1}
+  nav ul{display:flex;gap:22px;list-style:none;font-size:.92rem}
+  nav a{text-decoration:none;color:var(--muted)}
+  nav a:hover{color:var(--red)}
+  @media(max-width:720px){nav ul{display:none}}
+
+  /* Hero */
+  .hero{background:linear-gradient(120deg,var(--red) 0%,var(--red-dark) 100%);color:#fff;padding:64px 0 72px}
+  .hero h1{font-size:clamp(1.8rem,4.5vw,2.8rem);line-height:1.2;max-width:700px}
+  .hero p{margin-top:14px;max-width:600px;opacity:.92}
+  .hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .hero .tags span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:99px;font-size:.82rem}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600}
+  .btn-yellow{background:var(--yellow);color:var(--ink)}
+  .btn-outline{border:1.5px solid #fff;color:#fff;background:transparent}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-dark)}
+
+  /* Info strip */
+  .strip{margin-top:-36px}
+  .strip .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .strip .item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .strip .item b{display:block;font-size:.78rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+  @media(max-width:720px){.strip .grid{grid-template-columns:1fr}}
+
+  section{padding:64px 0}
+  h2{font-size:1.7rem;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:28px}
+
+  /* Services */
+  .services{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+  .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column}
+  .svc .ic{width:44px;height:44px;border-radius:12px;background:#fff4d6;display:grid;place-items:center;font-size:1.3rem;margin-bottom:12px}
+  .svc h3{font-size:1.1rem}
+  .svc p{color:var(--muted);font-size:.92rem;margin:4px 0 12px}
+  .svc details{margin-top:auto;border-top:1px dashed var(--line);padding-top:10px}
+  .svc summary{cursor:pointer;font-weight:600;font-size:.9rem;color:var(--red)}
+  .svc ul{margin:10px 0 0 18px;font-size:.9rem}
+  .svc li{margin:3px 0}
+  .note{font-size:.82rem;color:var(--muted);margin-top:18px}
+
+  /* Location */
+  .loc{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:stretch}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:360px;background:#eee}
+  .map iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .card dl div{padding:10px 0;border-bottom:1px solid var(--line)}
+  .card dl div:last-child{border-bottom:0}
+  .card dt{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .card dd{font-weight:500}
+  @media(max-width:820px){.loc{grid-template-columns:1fr}}
+
+  /* Form */
+  .enq{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px}
+  form .full{grid-column:1/-1}
+  label{font-size:.85rem;font-weight:500;display:block;margin-bottom:4px}
+  input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--yellow);border-color:var(--yellow)}
+  textarea{min-height:100px;resize:vertical}
+  @media(max-width:600px){form{grid-template-columns:1fr}}
+  .ok{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#e8f6ec;color:#1e6b34;font-size:.9rem}
+
+  footer{background:#1d1d1f;color:#c9c9c9;padding:32px 0;font-size:.85rem}
+  footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  footer .disc{margin-top:14px;font-size:.76rem;color:#8d8d8d}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="dot"></span><span><span id="shopName">KARNATAKA ONE</span><small>Online &amp; Citizen Services</small></span></a>
+    <nav><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#enquiry">Enquiry</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <h1>All your online &amp; citizen services in one place</h1>
+    <p id="tagline">Aadhaar update, ration card changes, Pahani (RTC), Encumbrance Certificate, xerox, printing and student project work — done quickly with friendly help.</p>
+    <div class="tags"><span>Aadhaar</span><span>Ration Card</span><span>Pahani / RTC</span><span>EC</span><span>Xerox &amp; Print</span><span>Student Projects</span></div>
+    <div class="btns">
+      <a class="btn btn-yellow" id="dirBtn" href="#" target="_blank" rel="noopener">📍 Get Directions</a>
+      <a class="btn btn-outline" href="#enquiry">Send an Enquiry</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap strip">
+  <div class="grid">
+    <div class="item"><b>Open</b><span id="hoursShort">Mon–Sat, 9:00 AM – 6:00 PM</span></div>
+    <div class="item"><b>Call</b><a id="phoneLink" href="tel:+918711865011">+91 87118 65011</a></div>
+    <div class="item"><b>Address</b><span id="areaShort">District Hospital Road, Chikkaballapur</span></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Our Services</h2>
+    <p class="sub">Tap “Documents to bring” on any service so you come prepared and finish in one visit.</p>
+    <div class="services" id="svcGrid"></div>
+    <p class="note">Document requirements can change as per government rules. Please call us to confirm before visiting for any certificate or update work.</p>
+  </div>
+</section>
+
+<section id="location" style="padding-top:0">
+  <div class="wrap">
+    <h2>Find Us</h2>
+    <p class="sub">Walk in or use the map for turn‑by‑turn directions.</p>
+    <div class="loc">
+      <div class="map"><iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Shop location on Google Maps"></iframe></div>
+      <div class="card">
+        <dl>
+          <div><dt>Address</dt><dd id="addrFull">—</dd></div>
+          <div><dt>Landmark</dt><dd id="landmark">—</dd></div>
+          <div><dt>Timings</dt><dd id="hoursFull">—</dd></div>
+          <div><dt>Phone</dt><dd><a id="phoneLink2" href="#">—</a></dd></div>
+        </dl>
+        <div class="btns" style="margin-top:14px">
+          <a class="btn btn-red" id="dirBtn2" href="#" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="enquiry" class="enq">
+  <div class="wrap">
+    <h2>Send an Enquiry</h2>
+    <p class="sub">Tell us what you need — we'll call you back and tell you exactly what to bring.</p>
+    <form id="enqForm">
+      <div><label for="fName">Your name</label><input id="fName" required placeholder="Full name"></div>
+      <div><label for="fPhone">Mobile number</label><input id="fPhone" required type="tel" pattern="[0-9+ ]{10,14}" placeholder="10‑digit mobile"></div>
+      <div class="full"><label for="fSvc">Service needed</label><select id="fSvc" required></select></div>
+      <div class="full"><label for="fMsg">Details (optional)</label><textarea id="fMsg" placeholder="E.g. change address in Aadhaar, add child's name to ration card, EC for 13 years…"></textarea></div>
+      <div class="full"><button class="btn btn-red" type="submit">Send Enquiry</button></div>
+    </form>
+    <div class="ok" id="okMsg">Thanks! Your enquiry is opening in WhatsApp — just press send and we'll get back to you.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>© <span id="yr"></span> <span id="shopName2">KARNATAKA ONE</span></span>
+      <span id="addrFoot">Address</span>
+    </div>
+    <p class="disc">This website is run by the centre's operator. It is not the official Government of Karnataka or UIDAI portal. Government fees apply as notified; service charges may apply.</p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================
+   EDIT YOUR SHOP DETAILS HERE — nothing else needs changing
+   ===================================================== */
+const SHOP = {
+  name:      "KARNATAKA ONE",
+  area:      "District Hospital Road, Chikkaballapur",
+  address:   "District Hospital Road, Chikkaballapur, Karnataka – 562101",
+  landmark:  "Opposite District Hospital, beside Vidya Amruth PU College",
+  hoursShort:"Mon–Sat, 9:00 AM – 6:00 PM",
+  hoursFull: "Monday to Saturday: 9:00 AM – 6:00 PM · Sunday: Closed",
+  phone:     "+918711865011",                     // used for the call link
+  phoneShow: "+91 87118 65011",                   // how it's displayed
+  whatsapp:  "918711865011",                      // enquiries are sent here (country code, no +)
+  lat:       13.436045894119191,
+  lng:       77.72526969805185
+};
+
+const SERVICES = [
+  { ic:"🪪", name:"Aadhaar Update",
+    desc:"Update name, address, date of birth, mobile number, photo or fingerprints.",
+    docs:["Original Aadhaar card / number","Proof of Identity (PAN, Voter ID, Passport, etc.) for name change","Proof of Address (Voter ID, bank passbook, electricity bill, etc.) for address change","Birth certificate / SSLC marks card for date of birth change","Mobile / photo / biometric update: only Aadhaar and your presence"]},
+  { ic:"🍚", name:"Ration Card Update",
+    desc:"Add or remove family members, correct names, change head of family, e‑KYC.",
+    docs:["Existing ration card","Aadhaar of all family members","Birth certificate (to add a child)","Marriage certificate (to add spouse)","Death certificate (to remove a member)"]},
+  { ic:"🌾", name:"Pahani / RTC",
+    desc:"Get Record of Rights, Tenancy & Crops (land record) copies.",
+    docs:["District, taluk, hobli and village name","Survey number / Hissa number","Owner's name (helpful for verification)"]},
+  { ic:"📜", name:"Encumbrance Certificate (EC)",
+    desc:"Apply for EC to check the property's transaction history.",
+    docs:["Property details: survey / site / khata number","Village and sub‑registrar office","Period required (from – to year)","Applicant's Aadhaar and mobile number"]},
+  { ic:"🖨️", name:"Xerox, Print & Scan",
+    desc:"Black & white and colour xerox, printouts, scanning, lamination.",
+    docs:["Original documents, or","Soft copy via WhatsApp / email / pen drive"]},
+  { ic:"🎓", name:"Student Projects",
+    desc:"Project typing, printing, spiral / soft binding and record work.",
+    docs:["Soft copy (Word / PDF) or handwritten draft","College format / guidelines, if any","Number of copies and binding type"]},
+  { ic:"💻", name:"Other Online Services",
+    desc:"Online applications, form filling and other citizen services.",
+    docs:["Call us to check what is needed for your work"]}
+];
+
+/* ---------- wiring (no changes needed below) ---------- */
+const $ = id => document.getElementById(id);
+const set = (id, v) => { const el = $(id); if (el) el.textContent = v; };
+set("shopName", SHOP.name); set("shopName2", SHOP.name);
+set("areaShort", SHOP.area); set("addrFull", SHOP.address); set("addrFoot", SHOP.address);
+set("landmark", SHOP.landmark); set("hoursShort", SHOP.hoursShort); set("hoursFull", SHOP.hoursFull);
+set("yr", new Date().getFullYear());
+document.title = SHOP.name + " – Online & Citizen Services";
+["phoneLink","phoneLink2"].forEach(id => { $(id).href = "tel:" + SHOP.phone; $(id).textContent = SHOP.phoneShow; });
+
+const dir = `https://www.google.com/maps/dir/?api=1&destination=${SHOP.lat},${SHOP.lng}`;
+$("dirBtn").href = dir; $("dirBtn2").href = dir;
+$("mapFrame").src = `https://maps.google.com/maps?q=${SHOP.lat},${SHOP.lng}&z=16&output=embed`;
+
+$("svcGrid").innerHTML = SERVICES.map(s => `
+  <div class="svc">
+    <div class="ic">${s.ic}</div>
+    <h3>${s.name}</h3>
+    <p>${s.desc}</p>
+    <details><summary>Documents to bring</summary><ul>${s.docs.map(d => `<li>${d}</li>`).join("")}</ul></details>
+  </div>`).join("");
+
+$("fSvc").innerHTML = `<option value="">Choose a service…</option>` +
+  SERVICES.map(s => `<option>${s.name}</option>`).join("");
+
+$("enqForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const text = `New enquiry from website%0A` +
+    `Name: ${encodeURIComponent($("fName").value)}%0A` +
+    `Mobile: ${encodeURIComponent($("fPhone").value)}%0A` +
+    `Service: ${encodeURIComponent($("fSvc").value)}%0A` +
+    `Details: ${encodeURIComponent($("fMsg").value || "-")}`;
+  window.open(`https://wa.me/${SHOP.whatsapp}?text=${text}`, "_blank");
+  $("okMsg").style.display = "block";
+  e.target.reset();
+});
+</script>
+</body>
+</html>
