@@ -1,0 +1,17 @@
+{
+  "name": "karnataka-one-chikkaballapur",
+  "private": true,
+  "description": "KARNATAKA ONE – online & citizen services website. Static site: open index.html or serve the folder.",
+  "scripts": {
+    "build": "esbuild src/scene3d.js --bundle --format=esm --minify --target=es2020 --legal-comments=none --outfile=assets/js/scene3d.js",
+    "vendor": "cp node_modules/gsap/dist/gsap.min.js node_modules/gsap/dist/ScrollTrigger.min.js node_modules/lenis/dist/lenis.min.js assets/vendor/ && cp node_modules/@fontsource-variable/archivo/files/archivo-latin-standard-normal.woff2 assets/fonts/archivo-variable.woff2",
+    "serve": "npx --yes serve -l 5173 ."
+  },
+  "devDependencies": {
+    "@fontsource-variable/archivo": "^5.2.8",
+    "esbuild": "^0.25.0",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.0",
+    "three": "~0.170.0"
+  }
+}
