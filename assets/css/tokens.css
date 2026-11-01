@@ -1,0 +1,72 @@
+@font-face{
+  font-family:"Archivo";
+  src:url("../fonts/archivo-variable.woff2") format("woff2-variations"),
+      url("../fonts/archivo-variable.woff2") format("woff2");
+  font-weight:100 900;
+  font-stretch:62% 125%;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  /* Colour — stamp-pad indigo, brand red & turmeric, copier paper */
+  --indigo-900:#120E29;
+  --indigo-800:#1A1538;
+  --indigo-700:#272052;
+  --indigo-600:#3A3172;
+  --violet:#5B47C8;
+  --violet-soft:#E8E4FA;
+  --red:#C8102E;
+  --red-dark:#9E0C24;
+  --turmeric:#FFC72C;
+  --turmeric-dark:#E0A800;
+  --paper:#FFFFFF;
+  --copier:#EEF0F3;
+  --ink:#16132A;
+  --ink-muted:#57546E;
+  --line:#DADDE4;
+  --on-dark:#F1F0FA;
+  --on-dark-muted:#B9B5D9;
+  --line-dark:rgba(241,240,250,.16);
+  --ok:#1E7B45;
+
+  /* Type */
+  --font:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --fs-sm:.875rem;
+  --fs-base:1.0625rem;
+  --fs-lg:1.25rem;
+  --fs-h3:1.3rem;
+  --fs-h2:clamp(2.1rem,4.2vw,3.4rem);
+  --fs-h1:clamp(3rem,7.4vw,6.2rem);
+  --wdth-display:72%;
+  --wdth-head:84%;
+
+  /* Space (8pt) */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem;
+  --s6:2rem; --s7:3rem; --s8:4.5rem; --s9:7rem;
+  --gutter:clamp(1rem,4vw,2rem);
+  --maxw:1200px;
+
+  /* Shape — paper is nearly square-cornered; controls are softer */
+  --r-paper:4px;
+  --r-ctrl:10px;
+  --r-pill:999px;
+
+  /* Depth */
+  --shadow-paper:0 1px 0 rgba(22,19,42,.04),0 10px 24px -12px rgba(22,19,42,.22),0 2px 6px -2px rgba(22,19,42,.08);
+  --shadow-lift:0 1px 0 rgba(22,19,42,.04),0 28px 48px -20px rgba(22,19,42,.35),0 8px 16px -8px rgba(22,19,42,.14);
+  --shadow-float:0 30px 60px -24px rgba(8,6,24,.6);
+
+  /* Motion */
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
+  --dur-fast:.18s;
+  --dur:.35s;
+  --dur-slow:.7s;
+
+  --head-h:72px;
+  --bar-h:0px;
+}
+@media (max-width:720px){
+  :root{ --head-h:60px; --bar-h:64px; }
+}
